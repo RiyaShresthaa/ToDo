@@ -16,4 +16,16 @@ def create_todo(request):
 
         ToDo.objects.create(title=title, description=description, status =status)
         return redirect('home')
-    return render(request, 'create.html')
+    content = {'method':'post'}
+    return render(request, 'create.html', context=content)
+
+def edit_todo(request,pk):
+    queryset = ToDo.objects.get(id=pk)
+    if request.method == "POST":
+        queryset.title = request.POST.get('title')
+        queryset.description = request.POST.get('description')
+        queryset.status = request.POST.get('status')
+        queryset.save()
+        return redirect('home')
+    content = {'object':queryset, 'method':'edit'}
+    return render(request,'create.html',context=content)

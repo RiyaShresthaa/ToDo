@@ -22,6 +22,7 @@
             <th scope="col">Task Name</th>
             <th scope="col">Task Description</th>
             <th scope="col">Task Status</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -31,8 +32,9 @@
                 <td>{{i.title}}</td>
                 <td>{{i.description}}</td>
                 <td>{{i.status}}</td>
+                <td><button><a href="{% url 'edit' pk=i.id %}"> Edit </a></button> <button> Delete </button></td>
             </tr>
-            {% endfor %}
+          {% endfor %}
         </tbody>
       </table>
 
