@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'navbar.html' % }
+    <h1>Create ToDos</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="title">Title</label>
+        <input type="text" name = "title" id = "title" required="True">
+        <br><br>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10" required="True"></textarea>
+        <br><br>
+        <label for="status">Status</label>
+        <select id="status" name="status">
+            <option value="Done">Done</option>
+            <option value="Not Done">Not Done</option>
+            
+        </select>
+        <br><br>
+        <input type="submit">        
+
+    </form>
+
+</body>
+</html>
